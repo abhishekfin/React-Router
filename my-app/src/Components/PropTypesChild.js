@@ -24,8 +24,17 @@ const PropTypesChild =(props)=>{
 //   }
 
 PropTypesChild.propTypes ={
+   // name:propTypes.string,
     name:propTypes.string,
-    name:propTypes.string,
-    age:propTypes.string
+    age:propTypes.number,
+    name:propTypes.oneOfType([
+        propTypes.string,
+        propTypes.number 
+   ]),
+   mother:function(props,propName,componnentName){
+       if(props[propName] !=="Martha"){
+         return new Error(`The Name ${props[propName]} is incorrect should be Martha`)
+       }
+   }
 }
 export default PropTypesChild;
